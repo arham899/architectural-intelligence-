@@ -1,0 +1,61 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.asciiArt {
+  font-family: var(--font-mono);
+  font-size: clamp(6px, 1.1vw, 11px);
+  line-height: 1.3;
+  white-space: pre;
+  user-select: none;
+  position: relative;
+  z-index: 2;
+}
+
+.line {
+  display: block;
+  height: 1.3em;
+}
+
+/* Character classes */
+.charDefault {
+  color: var(--text-ghost);
+  transition: opacity 0.15s ease;
+}
+.charStructure {
+  color: var(--text-primary);
+  text-shadow: 0 0 4px rgba(229, 229, 229, 0.3);
+  transition: opacity 0.15s ease;
+}
+.charWindow {
+  color: var(--accent-blue-light);
+  text-shadow: 0 0 6px rgba(26, 111, 239, 0.4);
+  transition: opacity 0.15s ease;
+}
+.charBright {
+  color: var(--accent-gold);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+  transition: opacity 0.15s ease;
+}
+.charGround {
+  color: var(--text-muted);
+  transition: opacity 0.15s ease;
+}
+
+/* Radial glow behind the building */
+.glow {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 71, 171, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}

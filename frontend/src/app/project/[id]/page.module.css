@@ -1,0 +1,396 @@
+/* ============================================================
+   ARCHON CAD — Premium 1:1 AutoCAD Layout Engine
+============================================================ */
+
+.workspace {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  color: #dfdfdf;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+/* ── TOP RIBBON MENU ── */
+.ribbon {
+  background: #252526;
+  border-bottom: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  z-index: 50;
+}
+
+.ribbonTop {
+  display: flex;
+  align-items: center;
+  background: #1e1e1e;
+  height: 36px;
+}
+.ribbonLogo {
+  background: linear-gradient(135deg, #d32f2f, #9a0007);
+  color: white;
+  font-weight: 800;
+  font-family: serif;
+  width: 44px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.2);
+}
+.ribbonTabs {
+  display: flex;
+  height: 100%;
+}
+.ribbonTab {
+  background: transparent;
+  color: #a0a0a0;
+  border: none;
+  padding: 0 20px;
+  height: 100%;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.ribbonTab:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+.ribbonTabActive {
+  background: #252526;
+  color: #64b5f6;
+  border: none;
+  padding: 0 20px;
+  height: 100%;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  border-top: 2px solid #64b5f6;
+  cursor: default;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.projectInfo {
+  margin-left: auto;
+  padding-right: 20px;
+  font-size: 11px;
+  color: #888;
+  letter-spacing: 0.5px;
+}
+
+.ribbonPanels {
+  display: flex;
+  background: #2d2d30;
+  height: 100px;
+  padding: 6px 12px;
+  gap: 8px;
+}
+.ribbonPanel {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  min-width: 140px;
+  overflow: hidden;
+}
+.panelTools {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px;
+}
+.panelLabel {
+  height: 22px;
+  background: rgba(0, 0, 0, 0.2);
+  color: #8a8a8a;
+  font-size: 9px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.ribbonBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #cccccc;
+  font-size: 10px;
+  width: 54px;
+  height: 54px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.ribbonBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+.ribbonBtn.active {
+  background: rgba(100, 181, 246, 0.15);
+  border-color: rgba(100, 181, 246, 0.3);
+  color: #64b5f6;
+}
+.rbIcon {
+  font-size: 20px;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* ── EDITOR AREA (Layout Container) ── */
+.editorArea {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  background: #111;
+}
+
+/* ── LEFT & RIGHT ANCHORED PALETTES ── */
+.palette {
+  width: 300px;
+  background: #252526;
+  border-right: 1px solid #1a1a1a;
+  border-left: 1px solid #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+.paletteHeader {
+  background: linear-gradient(180deg, #333333 0%, #252526 100%);
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #b0b0b0;
+  border-bottom: 1px solid #1a1a1a;
+}
+.paletteBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+.paletteBody::-webkit-scrollbar { width: 6px; }
+.paletteBody::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+
+/* ── LEFT: BLOCKS PALETTE ── */
+.catTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+.catBtn {
+  flex: 1;
+  min-width: 80px;
+  background: #2d2d30;
+  border: 1px solid #3e3e42;
+  color: #aaa;
+  font-size: 10px;
+  padding: 6px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.catBtn:hover {
+  background: #3e3e42;
+  color: #fff;
+}
+.catBtn.active {
+  background: #007acc;
+  color: #fff;
+  border-color: #007acc;
+}
+
+.blockGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.blockCard {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: grab;
+  transition: all 0.2s;
+}
+.blockCard:hover {
+  border-color: rgba(100, 181, 246, 0.5);
+  background: rgba(100, 181, 246, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.blockIcon { font-size: 28px; margin-bottom: 8px; }
+.blockName { font-size: 11px; font-weight: 500; text-align: center; color: #ddd; }
+
+/* ── CENTER: DRAWING CANVAS ── */
+.canvasMain {
+  flex: 1;
+  position: relative;
+  background: #000; /* Pure black CAD background */
+}
+.canvasWrap {
+  position: absolute;
+  inset: 0;
+}
+.canvas {
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+/* ── RIGHT: PROPERTIES PALETTE ── */
+.propGroup {
+  margin-bottom: 16px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.02);
+  overflow: hidden;
+}
+.propGroupName {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 10px;
+  color: #ddd;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.propRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  font-size: 11px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+.propRow:last-child { border-bottom: none; }
+.propLabel { color: #888; width: 45%; }
+.propVal {
+  width: 55%;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 4px 6px;
+  border-radius: 2px;
+  font-family: 'Courier New', Courier, monospace;
+}
+.propVal:focus { outline: 1px solid #64b5f6; border-color: transparent; }
+
+.propAction {
+  width: 100%;
+  background: #2d2d30;
+  color: #ccc;
+  border: 1px solid #3e3e42;
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 11px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.propAction:hover { background: #3e3e42; color: #fff; }
+
+/* ── BOTTOM: COMMAND LINE ── */
+.commandLine {
+  height: 140px;
+  background: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid #000;
+  flex-shrink: 0;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.5);
+  z-index: 50;
+}
+.cliHistory {
+  flex: 1;
+  background: #1a1a1a;
+  color: #a0a0a0;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 12px;
+  padding: 8px 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.cliHistory::-webkit-scrollbar { width: 8px; }
+.cliHistory::-webkit-scrollbar-thumb { background: #333; }
+
+.cliRow {
+  display: flex;
+  background: #1e1e1e;
+  border-top: 1px solid #2a2a2a;
+  padding: 8px 12px;
+  align-items: center;
+}
+.cliPrompt {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-weight: 600;
+  color: #64b5f6;
+  font-size: 13px;
+  margin-right: 12px;
+}
+.cliInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  color: #ffffff;
+  outline: none;
+}
+
+/* Status Bar */
+.statusBar {
+  height: 28px;
+  background: #007acc;
+  border-top: 1px solid #005f9e;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 16px;
+  font-size: 11px;
+  color: #ffffff;
+  font-weight: 500;
+}
+.statusBtn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.statusBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.statusBtn.on {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}

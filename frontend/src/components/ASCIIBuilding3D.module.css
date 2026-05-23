@@ -1,0 +1,38 @@
+.container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  background: #080808;
+}
+
+/* Vignette to pull focus to centre */
+.container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 90% 90% at 50% 50%,
+    transparent 30%,
+    rgba(6, 6, 6, 0.75) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ascii {
+  font-family: 'Roboto Mono', 'Courier New', monospace;
+  font-size: 9px;
+  line-height: 1.0;
+  letter-spacing: 0em;
+  white-space: pre;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  top: 0; left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0; padding: 0;
+  overflow: hidden;
+}
