@@ -219,7 +219,27 @@ Toggling to 3D mode replaces the canvas with a Three.js scene. Placed floor plan
 
 ## Screenshots
 
-*Screenshots will be added here.*
+### Landing Page
+
+The hero section features a full-viewport Three.js wireframe monument scene with typewriter text animation, mouse parallax, and call-to-action buttons.
+
+![Landing Page](screenshots/landing-page.png)
+
+---
+
+### Project Dashboard
+
+The dashboard displays a grid of project cards with blueprint previews, status indicators, and metadata. A sidebar provides navigation to Projects, Assets, Templates, and Settings.
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+### Project Editor (2D CAD View)
+
+The full CAD editor with a ribbon toolbar, categorized tool palettes on the left, an infinite-grid canvas with UCS origin marker in the center, a properties panel on the right, and a command line with status bar at the bottom.
+
+![Project Editor](screenshots/project-editor.png)
 
 ---
 
