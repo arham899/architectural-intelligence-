@@ -1,5 +1,25 @@
-# ARCHON -- AI Architect Studio
+<div align="center">
 
+# 🏛️ ARCHON — AI Architect Studio
+
+**Sketch a floor plan in the browser. Walk through it in 3D.**
+
+Frontend prototype of an AI-assisted architecture studio — an AutoCAD-style 2D canvas editor, one-click 3D extrusion in Three.js, and a brutalist, CAD-inspired interface. Natural-language plan generation is the next milestone.
+
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white) ![React 19](https://img.shields.io/badge/React%2019-20232A?style=flat-square&logo=react&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=threedotjs&logoColor=white) ![Canvas API](https://img.shields.io/badge/Canvas%20API-E34F26?style=flat-square&logo=html5&logoColor=white) ![Zustand](https://img.shields.io/badge/Zustand-443E38?style=flat-square&logo=react&logoColor=white)
+
+![ARCHON landing page](screenshots/landing-page.png)
+
+</div>
+
+## ✨ Highlights
+
+- **2D CAD editor on HTML Canvas** — drag-and-drop assets, snap-to-grid, zoom/pan, ribbon toolbar, properties panel and a command line
+- **Instant 2D → 3D** — floor-plan elements are extruded into a Three.js scene with orbit controls and lighting
+- **Custom rendering work** — wireframe monument scenes with holographic effects, plus an ASCII renderer that converts 3D geometry into density-mapped characters
+- **Polished UX** — cinematic loading sequence, custom crosshair cursor with live coordinates, token-based design system
+
+---
 ARCHON is an AI-powered architectural design studio built as a modern web application. It enables users to describe building requirements in plain English and generates constraint-checked floor plans, interactive 2D blueprints, and walkable 3D environments -- all within the browser.
 
 ---
@@ -290,4 +310,4 @@ This project is provided as-is for educational and portfolio purposes.
 
 ---
 
-Built by [Muhammad Arham](https://github.com/arham899)
+Built by [Arham Manzoor](https://github.com/arham899)
